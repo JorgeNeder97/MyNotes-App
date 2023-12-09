@@ -1,0 +1,29 @@
+<%- include('./partials/head'); %>
+<body>
+  <%- include('./partials/header'); %>
+  
+  <main>
+    <h2>Crear Nueva Nota</h2>
+    <form action="/note/newNote" method="POST" enctype="multipart/form-data">
+      <div class="titulo">
+        <label for="title">Ingresa el nombre de la nota</label>
+        <input type="text" name="title">
+      </div>
+      <div class="contenido">
+        <label for="content">Escribe tu nota Aquí</label>
+        <textarea name="content" id="contenidoNota" cols="30" rows="10" placeholder="Escribe Aqui..."></textarea>
+      </div>
+      <div class="archivo">
+        <label for="file">Puedes agregar archivos aquí</label>
+        <input type="file" multiple name="file">
+      </div>
+      <div class="submit-reset">
+        <button type="reset">Vaciar Campos</button>
+        <button type="submit">Crear Nota</button>
+      </div>
+    </form>
+  </main>
+
+  <%- include('./partials/footer'); %>
+</body>
+</html>

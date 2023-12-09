@@ -1,0 +1,90 @@
+<%- include('./partials/head'); %>
+<body>
+  <%- include('./partials/header'); %>
+  
+  <main>
+    <!-- Aqui usaras Multer -->
+    <form action="/user/register" method="POST" enctype="multipart/form-data">
+      
+      <div class="nombreUsuario">
+
+        <label for="userName">Ingresa un nombre de usuario</label>
+
+        <input type="text" name="userName" <%if(locals.old && old.userName) { %> value="<%=old.userName%>" <% } %>>
+        
+        <% if(locals.errors && errors.userName) { %>
+          <span class="error"><%= errors.userName.msg %></span>
+        <% } %>
+
+      </div>
+
+      <div class="email">
+        
+        <label for="email">Ingresa un email</label>
+        
+        <input type="email" name="email" <%if(locals.old && old.email) { %> value="<%=old.email%>" <% } %>>
+        
+        <% if(locals.errors && errors.email) { %>
+          <span class="error"><%= errors.email.msg %></span>
+        <% } %>
+
+      </div>
+
+      <div class="contraseña">
+        
+        <label for="password">Ingresa una contraseña</label>
+        
+        <input type="password" name="password" <%if(locals.old && old.password) { %> value="<%=old.password%>" <% } %>>
+        
+        <% if(locals.errors && errors.password) { %>
+          <span class="error"><%= errors.password.msg %></span>
+        
+        <% } %>
+      
+      </div>
+      
+      <div class="rep-contraseña">
+
+        <label for="rePassword">Repetí la contraseña</label>
+
+        <input type="password" name="rePassword" <%if(locals.old && old.rePassword) { %> value="<%=old.rePassword%>" <% } %>>
+        
+        <% if(locals.errors && errors.rePassword) { %>
+          <span class="error"><%= errors.rePassword.msg %></span>
+        <% } %>
+
+      </div>
+
+      <div class="avatar">
+
+        <label for="avatar">Elegí tu foto de perfil</label>
+
+        <input type="file" name="avatar">
+
+      </div>
+
+      <div class="terms">
+
+        <label for="terms">Acepto los <a href="">Terminos y Condiciónes</a> de MyNotes app</label>
+        
+        <% if(locals.old && old.terms) { %>
+          <input type="checkbox" name="terms" checked>
+        <% } else { %>
+          <input type="checkbox" name="terms">
+        <% } %>
+        
+        <% if(locals.errors && errors.terms) { %>
+          <span class="error"><%= errors.terms.msg %></span>
+        <% } %>
+
+      </div>
+
+      <button id="resetButton" type="reset">Vaciar Campos</button>
+      <button id="submitButton" type="submit">Registrarme</button>
+    </form>
+    <img src="" alt="Register" id="registerImg">
+  </main>
+
+  <%- include('./partials/footer'); %>
+</body>
+</html>

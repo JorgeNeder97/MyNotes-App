@@ -1,0 +1,39 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+  
+  <main>
+    <div id="loginImg">
+        <img src="" alt="Login">
+    </div>
+    <form action="/user/login" method="POST">
+        <div class="usuario">
+            <label for="userName">Ingresa tu nombre de usuario</label>
+            <input type="text" name="userName" <%if(locals.old && old.userName) { %> value="<%=old.userName%>" <% } %>>
+            <% if(locals.errors && errors.userName) { %>
+                <span class="error"><%= errors.userName.msg %></span>
+            <% } %>
+        </div>
+        <div class="contraseña">
+            <label for="password">Ingresa tu contraseña</label>
+            <input type="password" name="password">
+            <% if(locals.errors && errors.password) { %>
+                <span class="error"><%= errors.password.msg %></span>
+              
+            <% } %>
+        </div>
+        <div class="recordame">
+            <label for="remember">Recordame</label>
+            <input type="checkbox" name="remember">
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <div id="noTenesCuenta">
+        <p>¿No tenés cuenta aún?</p>
+        <a href="/user/register">Registrate Aquí</a>
+    </div>
+  </main>
+
+  <%- include('./partials/footer') %>
+</body>
+</html>

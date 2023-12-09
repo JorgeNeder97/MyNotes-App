@@ -1,0 +1,15 @@
+<% if(locals.usuarioLogueado) { %>
+    <header>
+        <h2 id="bienvenido">Bienvenido <%=usuarioLogueado.userName %></h2>
+        <section id="nota-crud">
+            <a href="/note/newNote">Nueva Nota</a>
+        </section>
+        <section id="sesion">
+            <a href="/user/login">Cerrar Sesión</a>
+        </section>
+    </header>
+<% } else { %>
+    <header>
+        <h2 id="bienvenido-login">MyNotes</h2>
+    </header>
+<% } %>
