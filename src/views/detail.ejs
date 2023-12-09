@@ -3,7 +3,21 @@
   <%- include('./partials/header'); %>
   
   <main>
-    <h2>Edit</h2>
+    <form action="/note/<%= nota.id %>?_method=PUT" method="POST">
+      <div id="titulo">
+        <input type="text" name="title" value="<%= nota.title %>">
+      </div>
+      <div id="content">
+        <textarea name="content" id="content-textArea" cols="30" rows="10"><%= nota.content %></textarea>
+      </div>
+      <div id="editar">
+        <button type="submit" id="editar">Editar Nota</button>
+      </div>
+    </form>
+    <form action="/note/delete/<%= nota.id %>?_method=DELETE" method="POST">
+      <button type="submit" id="eliminar">Eliminar Nota</button>
+    </form>
+
     <!-- Aqui Usaras Method Override -->
   </main>
 

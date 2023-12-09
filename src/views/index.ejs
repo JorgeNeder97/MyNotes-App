@@ -3,7 +3,19 @@
   <%- include('./partials/header'); %>
   
   <main>
-    <h1>ESTE ES EL INDEX</h1>
+    <h1>MyNotes App</h1>
+    <h2>Tus Notas</h2>
+    <section>
+      <% for(let i = 0; i < notes.length; i++) { %>
+        <% if(notes[i].userId == usuarioLogueado.id) { %>
+          <article>
+            <h3><%= notes[i].title %></h3>
+            <p><%= notes[i].content %></p>
+            <a href="/note/<%= notes[i].id %>">Ver Nota</a>
+          </article>
+        <% } %>
+      <% } %>
+    </section>
   </main>
 
   <%- include('./partials/footer'); %>

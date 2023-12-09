@@ -2,17 +2,23 @@ const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 let usuariosFilePath = path.join(__dirname, '../data/users.json');
 let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'}));
 
 let userController = {
     perfil: (req, res) => {
-        res.render('profile');
+        if(req.session.usuarioLogueado) {
+            res.render('profile', {usuarioLogueado: req.session.usuarioLogueado, title: 'MyNotes | ' + usuarioLogueado.userName, css: 'css/profile.css'});
+        }
+        else {
+            res.redirect('/user/login');
+        }
     },
 
     registrar: (req, res) => {
-        res.render('register');
+        res.render('register', {title: 'MyNotes | Registrarme', css: 'css/register.css'});
     },
 
     procesarRegistro: (req, res) => {
@@ -25,9 +31,12 @@ let userController = {
                 userName: req.body.userName,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                avatar: req.file.originalname
+                
             }
-            if(newUser.avatar == undefined) {
+            if(req.file) {
+                newUser.avatar = req.file.originalname;
+            }
+            else if(newUser.avatar == undefined) {
                 newUser.avatar = 'default.webp';
             }
 
@@ -46,7 +55,8 @@ let userController = {
     loguear: (req, res) => {
         req.session.usuarioLogueado = undefined;
         res.clearCookie('remember');
-        res.render('login');
+        res.clearCookie('session');
+        res.render('login', {title: 'MyNotes | Iniciar Sesion', css: 'css/login.css'});
     },
 
     procesarLogueo: (req, res) => {
@@ -68,6 +78,8 @@ let userController = {
             
             if(req.body.remember != undefined) {
                 res.cookie('remember', usuarioALoguearse.id, {maxAge: 60000*2628000});
+            } else {
+                res.cookie('session', usuarioALoguearse.id, {maxAge: 1000000000000000000000000000000000000000 ** 1000000000000000000000000000000000000000});
             }
 
             res.redirect('/');

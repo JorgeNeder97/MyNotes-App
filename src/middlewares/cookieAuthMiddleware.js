@@ -14,6 +14,15 @@ function rememberMiddleware(req, res, next) {
             }
         }
         req.session.usuarioLogueado = usuarioALoguearse;
+    } else if(req.cookies.remember == undefined && req.session.usuarioLogueado == undefined) {
+        let usuarioALoguearse = null;
+        for(let i = 0; i < usuarios.length; i++) {
+            if(usuarios[i].id == req.cookies.session) {
+                usuarioALoguearse = usuarios[i];
+                break;
+            }
+        }
+        req.session.usuarioLogueado = usuarioALoguearse;
     }
 
     next();
