@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Configurando Express-session
-app.use(session({secret:'Secret path'}));
+app.use(session({secret:'Secret path', resave: false, saveUninitialized: true}));
 
 // Configurando rememberMiddleware
 app.use(rememberMiddleware);
