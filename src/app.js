@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const rememberMiddleware = require('./middlewares/cookieAuthMiddleware');
 
 // Rutas
 const indexRouter = require('./routes/index');
@@ -23,6 +24,9 @@ app.use(cookieParser());
 
 // Configurando Express-session
 app.use(session({secret:'Secret path'}));
+
+// Configurando rememberMiddleware
+app.use(rememberMiddleware);
 
 // Configurando la carpeta publica
 app.use(express.static('public'));

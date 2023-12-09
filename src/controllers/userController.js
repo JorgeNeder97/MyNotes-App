@@ -45,6 +45,7 @@ let userController = {
 
     loguear: (req, res) => {
         req.session.usuarioLogueado = undefined;
+        res.clearCookie('remember');
         res.render('login');
     },
 
@@ -56,6 +57,7 @@ let userController = {
             for(let i = 0; i < usuarios.length; i++) {
                 if(usuarios[i].userName == req.body.userName && bcrypt.compareSync(req.body.password, usuarios[i].password)) {
                     usuarioALoguearse = usuarios[i];
+                    break;
                 }
             }
             if(usuarioALoguearse == undefined) {
@@ -64,6 +66,10 @@ let userController = {
 
             req.session.usuarioLogueado = usuarioALoguearse;
             
+            if(req.body.remember != undefined) {
+                res.cookie('remember', usuarioALoguearse.id, {maxAge: 60000*2628000});
+            }
+
             res.redirect('/');
         }
         else {
