@@ -10,27 +10,27 @@ let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'})
 const validacionesLogueo = [
     body('userName').notEmpty().bail()
     .custom((value, {req}) => {
-        let a = 0;
+        let user;
         for(let i = 0; i < usuarios.length; i++) {
             if(req.body.userName == usuarios[i].userName) {
-                a = 1;
+                user = usuarios[i].userName;
                 return true;
             }
         }
-        if(a = 0) {
+        if(!user) {
             throw new Error('El usuario ingresado no existe.');
         }
     }),
     body('password').notEmpty().bail()
     .custom((value, {req}) => {
-        let b = 0;
+        let password;
         for(let i = 0; i < usuarios.length; i++) {
             if(bcrypt.compareSync(req.body.password, usuarios[i].password)) {
-                b = 1;
+                password = usuarios[i].password;
                 return true;
             }
         }
-        if(b = 0) {
+        if(!password) {
             throw new Error('La contraseña ingresada es incorrecta.');
         }
     })
