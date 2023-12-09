@@ -4,7 +4,7 @@ const { check, validationResult, body } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
 let usuariosFilePath = path.join(__dirname, '../data/users.json');
-let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath));
+let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'}));
 
 let userController = {
     perfil: (req, res) => {

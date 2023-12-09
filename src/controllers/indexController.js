@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Leemos los usuarios del JSON
-let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json')));
+let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), {encoding: 'utf-8'}));
 
 let indexController = {
     inicio: (req, res) => {

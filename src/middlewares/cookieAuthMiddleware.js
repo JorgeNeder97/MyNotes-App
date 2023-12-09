@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 let usuariosFilePath = path.join(__dirname, '../data/users.json');
-let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath));
+let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'}));
 
 function rememberMiddleware(req, res, next) {
     if(req.cookies.remember != undefined && req.session.usuarioLogueado == undefined) {
