@@ -1,0 +1,99 @@
+header {
+    width: 100%;
+    font-family: 'Open sans', 'sans-serif';
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 30px 10px 30px;
+    background: linear-gradient(to right, #C9D6FF, #E2E2E2);
+    /* background: radial-gradient(circle, #fff2d5, #fff6ec); */
+}
+
+#logo {
+    width: 20%;
+}
+
+#bienvenido {
+    width: 60%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#userName {
+    font-family: 'Pacifico', cursive;
+}
+
+.botones {
+    width: 20%;
+    min-width: 240px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#nota-crud {
+    min-width: 15%;
+    text-align: right;
+}
+
+#nota-crud a {
+    background: #111;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #FFF;
+    transition: all .2s;
+}
+
+#nota-crud a:hover {
+    background: #333;
+}
+
+#nota-crud a:active {
+    background: #555;
+}
+
+#sesion {
+    min-width: 15%;
+}
+
+#sesion a {
+    background: #111;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #FFF;
+    transition: all .2s;
+}
+
+#sesion a:hover {
+    background: #333;
+}
+
+#sesion a:active {
+    background: #555;
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #nota-crud a, #sesion a {
+        padding: 10px;
+    }
+
+    .botones {
+        margin: 20px 0;
+    }
+
+    #bienvenido {
+        font-size: 2rem;
+    }
+
+    #logo {
+        width: 50%;
+    }
+}

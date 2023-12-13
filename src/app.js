@@ -13,7 +13,8 @@ const userRouter = require('./routes/users');
 const noteRouter = require('./routes/notes');
 
 // Configurando la carpeta publica
-app.use(express.static('public'));
+let publicPath = path.resolve(__dirname, '../public');
+app.use(express.static(publicPath));
 
 // Configurando EJS
 app.set('views', path.join(__dirname, 'views'));

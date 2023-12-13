@@ -1,21 +1,23 @@
 <%- include('./partials/head'); %>
 <body>
   <%- include('./partials/header'); %>
-  
   <main>
-    <h1>MyNotes App</h1>
-    <h2>Tus Notas</h2>
-    <section>
-      <% for(let i = 0; i < notes.length; i++) { %>
-        <% if(notes[i].userId == usuarioLogueado.id) { %>
-          <article>
-            <h3><%= notes[i].title %></h3>
-            <p><%= notes[i].content %></p>
-            <a href="/note/<%= notes[i].id %>">Ver Nota</a>
-          </article>
+    <h2 id="tituloIndex">TODAS LAS NOTAS</h2>
+    <div class="notas-container">
+      <section id="notasIndex">
+        <% for(let i = 0; i < notes.length; i++) { %>
+          <% if(notes[i].userId == usuarioLogueado.id) { %>
+            <article id="nota">
+              <h3 id="notaTitulo" style=<%= notes[i].color %>><%= notes[i].title %></h3>
+              <p id="notaContenido"><%= notes[i].content %></p>
+              <a href="/note/<%= notes[i].id %>" class="modal">
+                <p id="verNota">Ver Nota</p>
+              </a>
+            </article>
+          <% } %>
         <% } %>
-      <% } %>
-    </section>
+      </section>
+    </div>
   </main>
 
   <%- include('./partials/footer'); %>

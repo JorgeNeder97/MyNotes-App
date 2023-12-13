@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open sans', 'sans-serif';
+    background: url('/img/index.jpg');
+    background-size: cover;
+    background-attachment: scroll;
+    animation: load .3s;
+}
+
+main {
+    min-height: 100vh;
+}
+
+@keyframes load {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}

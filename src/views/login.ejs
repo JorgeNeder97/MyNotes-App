@@ -1,12 +1,14 @@
-<%- include('./partials/head') %>
+<%- include('./partials/head'); %>
 <body>
-  <%- include('./partials/header') %>
+  <header>
+    <img src="/img/MyNotes.png" alt="My Notes App">
+  </header>
   
   <main>
     <div id="loginImg">
-        <img src="" alt="Login">
+        <img src="/img/Login.png" alt="Login">
     </div>
-    <form action="/user/login" method="POST">
+    <form id="form" action="/user/login" method="POST">
         <div class="usuario">
             <label for="userName">Ingresa tu nombre de usuario</label>
             <input type="text" name="userName" <%if(locals.old && old.userName) { %> value="<%=old.userName%>" <% } %>>
@@ -16,7 +18,7 @@
         </div>
         <div class="contraseña">
             <label for="password">Ingresa tu contraseña</label>
-            <input type="password" name="password">
+            <input type="password" name="password" <%if(locals.old && old.password) { %> value="<%=old.password%>" <% } %>>
             <% if(locals.errors && errors.password) { %>
                 <span class="error"><%= errors.password.msg %></span>
               
@@ -26,14 +28,14 @@
             <label for="remember">Recordame</label>
             <input type="checkbox" name="remember">
         </div>
-        <button type="submit">Iniciar Sesión</button>
+        <button id="submit" type="submit">Iniciar Sesión</button>
+        <div id="noTenesCuenta">
+            <p>¿No tenés cuenta aún?</p>
+            <a href="/user/register">Registrate Aquí</a>
+        </div>
     </form>
-    <div id="noTenesCuenta">
-        <p>¿No tenés cuenta aún?</p>
-        <a href="/user/register">Registrate Aquí</a>
-    </div>
   </main>
 
-  <%- include('./partials/footer') %>
+  <%- include('./partials/footer'); %>
 </body>
 </html>

@@ -1,8 +1,22 @@
 body {
-    background: #ac2fac;
+    background: #000;
+}
+
+main {
+    padding: 50px 50px 100px 50px;
+    gap: 50px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #fff;
 }
 
 img {
-    width: 60vw;
-    margin: 0 auto;
+    width: 30%;
+    margin: auto;
 }

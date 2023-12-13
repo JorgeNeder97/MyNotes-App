@@ -1,3 +1,164 @@
-body {
-    background: red;
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-height: 70px;
+}
+
+header img {
+    min-width: 250px;
+    width: 30%;
+}
+
+main {
+    font-family: 'Open Sans', 'sans-serif';
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 10px;
+}
+
+#loginImg {
+    width: 50%;
+    border-radius: 20px;
+}
+
+#loginImg img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 50px 100px 50px;
+    gap: 40px;
+    width: 50%;
+    font-size: 1.5rem;
+}
+
+.usuario, .contraseña, #noTenesCuenta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 10px;
+}
+
+.usuario input, .contraseña input {
+    width: 100%;
+    height: 40px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #697bb6;
+    font-size: 1.5rem;
+    color: #5a4788;
+    outline: none;
+    transition: all .2s;
+}
+
+.usuario input:focus, .contraseña input:focus {
+    border-color: #5a4788;
+    box-shadow: 0px 0px 5px #697bb6;
+}
+
+.recordame {
+    width: 80%;
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    margin-top: -20px;
+    gap: 10px;
+}
+
+#submit {
+    width: 80%;
+    height: 50px;
+    font-size: 1.5rem;
+    background: #7325cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0px 0px 5px #666;
+    cursor: pointer;
+    letter-spacing: 0;
+    transition: all .2s;
+}
+
+#submit:hover {
+    background: #902eff;
+    letter-spacing: 2px;
+}
+
+#submit:active {
+    background: #c491ff;
+}
+
+#noTenesCuenta {
+    font-size: 1rem;
+    margin-top: -30px;
+    gap: 2px;
+}
+
+#noTenesCuenta a {
+    color: #902eff;
+    transition: all .2s;
+}
+
+#noTenesCuenta a:hover {
+    color: #c491ff;
+    letter-spacing: .5px;
+}
+
+/* ERRORES */
+
+.error {
+    color: #aa3333;
+    font-size: 1rem;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        flex-direction: column;
+    }
+
+    #loginImg {
+        display: none;
+    }
+
+    #form {
+        width: 100%;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #form {
+        font-size: 1rem;
+        padding: 20px 0 0 0;
+        width: 100%;
+    }
+
+    .usuario input, .contraseña input {
+        font-size: 1rem;
+        height: 30px;
+    }
+
+    #submit {
+        font-size: 1rem;
+        height: 40px;
+    }
 }

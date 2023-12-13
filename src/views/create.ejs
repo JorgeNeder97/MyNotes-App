@@ -3,11 +3,19 @@
   <%- include('./partials/header'); %>
   
   <main>
-    <h2>Crear Nueva Nota</h2>
+    <div class="encabezado">
+      <h2>Crear Nueva Nota</h2>
+      <a href="/">Volver</a>
+    </div>
     <form action="/note/newNote" method="POST" enctype="multipart/form-data">
       <div class="titulo">
-        <label for="title">Ingresa el nombre de la nota</label>
+        <label for="title">Ingresa el titulo de la nota</label>
         <input type="text" name="title">
+      </div>
+      <div class="color">
+        <input type="text" style="display: none" value="background-color:" name="style">
+        <label for="color">Elige un color para el titulo</label>
+        <input type="color" name="color">
       </div>
       <div class="contenido">
         <label for="content">Escribe tu nota Aquí</label>

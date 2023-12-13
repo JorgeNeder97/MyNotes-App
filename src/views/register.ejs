@@ -1,16 +1,18 @@
 <%- include('./partials/head'); %>
 <body>
-  <%- include('./partials/header'); %>
+  <header>
+    <img src="/img/MyNotes.png" alt="My Notes App">
+  </header>
   
   <main>
-    <!-- Aqui usaras Multer -->
-    <form action="/user/register" method="POST" enctype="multipart/form-data">
+
+    <form id="form" action="/user/register" method="POST" enctype="multipart/form-data">
       
       <div class="nombreUsuario">
 
-        <label for="userName">Ingresa un nombre de usuario</label>
+        <label for="userName">Nombre de usuario</label>
 
-        <input type="text" name="userName" <%if(locals.old && old.userName) { %> value="<%=old.userName%>" <% } %>>
+        <input type="text" name="userName" placeholder="Ingresa tu nombre de usuario" <%if(locals.old && old.userName) { %> value="<%=old.userName%>" <% } %>>
         
         <% if(locals.errors && errors.userName) { %>
           <span class="error"><%= errors.userName.msg %></span>
@@ -20,9 +22,9 @@
 
       <div class="email">
         
-        <label for="email">Ingresa un email</label>
+        <label for="email">Email</label>
         
-        <input type="email" name="email" <%if(locals.old && old.email) { %> value="<%=old.email%>" <% } %>>
+        <input type="email" name="email" placeholder="Ingresa tu email" <%if(locals.old && old.email) { %> value="<%=old.email%>" <% } %>>
         
         <% if(locals.errors && errors.email) { %>
           <span class="error"><%= errors.email.msg %></span>
@@ -32,9 +34,9 @@
 
       <div class="contraseña">
         
-        <label for="password">Ingresa una contraseña</label>
+        <label for="password">Contraseña</label>
         
-        <input type="password" name="password" <%if(locals.old && old.password) { %> value="<%=old.password%>" <% } %>>
+        <input type="password" name="password" placeholder="Ingresa tu contraseña" <%if(locals.old && old.password) { %> value="<%=old.password%>" <% } %>>
         
         <% if(locals.errors && errors.password) { %>
           <span class="error"><%= errors.password.msg %></span>
@@ -45,9 +47,9 @@
       
       <div class="rep-contraseña">
 
-        <label for="rePassword">Repetí la contraseña</label>
+        <label for="rePassword">Confirmar contraseña</label>
 
-        <input type="password" name="rePassword" <%if(locals.old && old.rePassword) { %> value="<%=old.rePassword%>" <% } %>>
+        <input type="password" name="rePassword" placeholder="Confirma tu contraseña" <%if(locals.old && old.rePassword) { %> value="<%=old.rePassword%>" <% } %>>
         
         <% if(locals.errors && errors.rePassword) { %>
           <span class="error"><%= errors.rePassword.msg %></span>
@@ -59,30 +61,38 @@
 
         <label for="avatar">Elegí tu foto de perfil</label>
 
-        <input type="file" name="avatar">
+        <input type="file" name="avatar" >
 
       </div>
 
       <div class="terms">
 
-        <label for="terms">Acepto los <a href="">Terminos y Condiciónes</a> de MyNotes app</label>
-        
         <% if(locals.old && old.terms) { %>
           <input type="checkbox" name="terms" checked>
         <% } else { %>
           <input type="checkbox" name="terms">
         <% } %>
-        
+
+        <label for="terms">Acepto los <a href="">Terminos y Condiciónes</a></label>
+            
+      </div>
+      <div class="terms-error">
         <% if(locals.errors && errors.terms) { %>
           <span class="error"><%= errors.terms.msg %></span>
         <% } %>
-
       </div>
 
-      <button id="resetButton" type="reset">Vaciar Campos</button>
-      <button id="submitButton" type="submit">Registrarme</button>
+      <div class="botones">
+        <button id="resetButton" type="reset" form="form">Vaciar Campos</button>
+        <button id="submitButton" type="submit">Registrarme</button>
+      </div>
+
+      <div class="yaTenesCuenta">
+        <p>¿Ya estas registrado?</p>
+        <a href="/user/login">Inicia sesión aquí</a>
+      </div>
     </form>
-    <img src="" alt="Register" id="registerImg">
+    <img src="/img/register.png" alt="Register" id="registerImg">
   </main>
 
   <%- include('./partials/footer'); %>

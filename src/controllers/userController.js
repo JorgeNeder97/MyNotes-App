@@ -10,7 +10,7 @@ let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'})
 let userController = {
     perfil: (req, res) => {
         if(req.session.usuarioLogueado) {
-            res.render('profile', {usuarioLogueado: req.session.usuarioLogueado, title: 'MyNotes | ' + usuarioLogueado.userName, css: 'css/profile.css'});
+            res.render('profile', {usuarioLogueado: req.session.usuarioLogueado, title: 'MyNotes | ' + usuarioLogueado.userName, css:"/css/profile.css"});
         }
         else {
             res.redirect('/user/login');
@@ -18,7 +18,7 @@ let userController = {
     },
 
     registrar: (req, res) => {
-        res.render('register', {title: 'MyNotes | Registrarme', css: 'css/register.css'});
+        res.render('register', {title: 'MyNotes | Registrarme', css:"/css/register.css"});
     },
 
     procesarRegistro: (req, res) => {
@@ -43,11 +43,12 @@ let userController = {
             usuarios.push(newUser);
 
             fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios));
+            fs.writeFileSync(path.join(__dirname, `../data/notes/${newUser.userName}.json`), JSON.stringify([]));
 
             res.redirect('/');
         }
         else {
-            res.render('register', {errors: errors.mapped(), old: old});
+            res.render('register', {errors: errors.mapped(), old: old, title: 'MyNotes | Registrarme', css:"/css/register.css"});
         }
 
     },
@@ -56,7 +57,7 @@ let userController = {
         req.session.usuarioLogueado = undefined;
         res.clearCookie('remember');
         res.clearCookie('session');
-        res.render('login', {title: 'MyNotes | Iniciar Sesion', css: 'css/login.css'});
+        res.render('login', {title: 'MyNotes | Iniciar Sesión', css:'/css/login.css'});
     },
 
     procesarLogueo: (req, res) => {
@@ -71,7 +72,7 @@ let userController = {
                 }
             }
             if(usuarioALoguearse == undefined) {
-                res.render('login', {errors: [{msg: 'El usuario ingresado no existe.'}]});
+                res.render('login', {errors: [{msg: 'El usuario ingresado no existe.', title: 'MyNotes | Iniciar Sesión', css:'/css/login.css'}]});
             }
 
             req.session.usuarioLogueado = usuarioALoguearse;
@@ -85,7 +86,7 @@ let userController = {
             res.redirect('/');
         }
         else {
-            res.render('login', {errors: errors.mapped(), old: old});
+            res.render('login', {errors: errors.mapped(), old: old, title: 'MyNotes | Iniciar Sesión', css:'/css/login.css'});
         }
     },
 

@@ -8,7 +8,7 @@ let usuariosFilePath = path.join(__dirname, '../data/users.json');
 let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'}));
 
 const validacionesLogueo = [
-    body('userName').notEmpty().bail()
+    body('userName').notEmpty().withMessage('Debes ingresar tu usuario para iniciar sesión').bail()
     .custom((value, {req}) => {
         let user;
         for(let i = 0; i < usuarios.length; i++) {
@@ -21,11 +21,11 @@ const validacionesLogueo = [
             throw new Error('El usuario ingresado no existe.');
         }
     }),
-    body('password').notEmpty().bail()
+    body('password').notEmpty().withMessage('Debes ingresar tu contraseña para iniciar sesión').bail()
     .custom((value, {req}) => {
         let password;
         for(let i = 0; i < usuarios.length; i++) {
-            if(bcrypt.compareSync(req.body.password, usuarios[i].password)) {
+            if(bcrypt.compareSync(req.body.password, usuarios[i].password) && req.body.userName == usuarios[i].userName) {
                 password = usuarios[i].password;
                 return true;
             }
