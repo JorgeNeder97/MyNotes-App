@@ -94,7 +94,7 @@ main {
 
 #submit:hover {
     background: #902eff;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 #submit:active {

@@ -5,9 +5,12 @@
   <main>
     <div class="encabezado">
       <h2>Crear Nueva Nota</h2>
-      <a href="/">Volver</a>
+      <a href="/" id="volver">
+        <i class="fa-solid fa-angle-left"></i>
+        <p>Volver</p>
+      </a>
     </div>
-    <form action="/note/newNote" method="POST" enctype="multipart/form-data">
+    <form id="form" action="/note/newNote" method="POST" enctype="multipart/form-data">
       <div class="titulo">
         <label for="title">Ingresa el titulo de la nota</label>
         <input type="text" name="title">
