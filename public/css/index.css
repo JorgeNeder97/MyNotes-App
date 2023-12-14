@@ -20,8 +20,10 @@ main {
     width: 100%;
     min-height: 70vh;
     padding: 30px 60px;
-    background: radial-gradient(circle, rgba(201, 214, 255, 0.6), rgba(129, 136, 236, 0.6));
+    background: #C9D7FF;
+    box-shadow: 0px 0px 5px #111;
     border-radius: 5px;
+    margin-bottom: 80px;
 }
 
 #notasIndex {

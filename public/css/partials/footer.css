@@ -9,6 +9,7 @@ footer {
     background: linear-gradient(to right, #C9D6FF, #E2E2E2);
     width: 100%;
     min-height: 50px;
+    box-shadow: -1px -1px 5px #111;
 }
 
 .redes {

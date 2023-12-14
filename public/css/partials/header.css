@@ -6,6 +6,7 @@ header {
     align-items: center;
     padding: 10px 30px 10px 30px;
     background: linear-gradient(to right, #C9D6FF, #E2E2E2);
+    box-shadow: 1px 1px 5px #111;
     /* background: radial-gradient(circle, #fff2d5, #fff6ec); */
 }
 

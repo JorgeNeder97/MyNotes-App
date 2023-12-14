@@ -24,12 +24,13 @@ main {
 }
 
 #volver {
-    background: #7325cc;
-    color: #FFF;
+    background: #C9D7FF;
+    color: #111;
     padding: 10px 10px 10px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.3rem;
+    transition: all .3s;
 }
 
 #volver p {
@@ -40,6 +41,10 @@ main {
 #volver:hover i {
     position: relative;
     animation: volver infinite .3s alternate;
+}
+
+#volver:hover {
+    box-shadow: 0px 0px 5px #111;
 }
 
 #form {
