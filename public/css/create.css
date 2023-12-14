@@ -13,6 +13,7 @@ main {
     justify-content: space-between;
     padding-top: 10px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .encabezado h2 {
@@ -30,6 +31,7 @@ main {
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.3rem;
+    box-shadow: 0px 0px 5px #111;
     transition: all .3s;
 }
 
@@ -40,16 +42,237 @@ main {
 
 #volver:hover i {
     position: relative;
+    color: #111;
     animation: volver infinite .3s alternate;
-}
-
-#volver:hover {
-    box-shadow: 0px 0px 5px #111;
 }
 
 #form {
     width: 100%;
+    padding: 50px 5px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    background: rgba(201, 215, 255, .4);
+    margin-bottom: 100px;
+    box-shadow: 0px 0px 5px #111;
 }
+
+.container-titulo-color {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.color {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 50%;
+}
+
+.titulo, .color-container, .cuentagotas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 40%;
+}
+
+.color-container {
+    width: 70%;
+}
+
+.titulo label, .color label {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#cuentagotasLabel {
+    font-size: 1.3rem;
+}
+
+.titulo input {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #697bb6;
+    outline: none;
+    font-family: 'Open Sans', 'sans-serif';
+    transition: all .3s;
+}
+
+.titulo input:hover {
+    border-color: #5a4788;
+    box-shadow: 0px 0px 5px #697bb6;
+}
+
+.color input {
+    width: 50%;
+    height: 55px;
+    background: none;
+    border: none;
+    outline: none;
+    transition: all .3s;
+}
+
+.color input:hover {
+    box-shadow: 1px 1px 5px #111;
+}
+
+.colores-container {
+    display: grid;
+    grid-template-columns: 30px 30px 30px;
+    gap: 10px;
+}
+
+.colores-container div {
+    min-width: 30%;
+    min-height: 30px;
+}
+
+#colorRojo {
+    background: rgb(255, 91, 91);
+}
+
+#colorAzul {
+    background: rgb(91, 91, 255);
+}
+
+#colorAmarillo {
+    background: rgb(255, 255, 91);
+}
+
+#colorVioleta {
+    background: rgb(255, 91, 255);
+}
+
+#colorVerde {
+    background: rgb(91, 255, 91);
+}
+
+#colorNaranja {
+    background: rgb(255, 178, 91);
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 60px;
+    gap: 20px;
+}
+
+.contenido label {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    align-self: center;
+}
+
+#contenidoNota {
+    width: 100%;
+    font-size: 1.5rem;
+    font-family: 'Open sans';
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #697bb6;
+    outline: none;
+    resize: none;
+    transition: all .3s;
+}
+
+#contenidoNota:hover {
+    border-color: #5a4788;
+    box-shadow: 0px 0px 5px #697bb6;
+}
+
+.archivo-botones {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 80px 30px 30px;
+}
+
+.archivo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 2rem;
+    width: 50%;
+}
+
+.archivo input {
+    font-size: 1.3rem;
+    resize: none;
+}
+
+.submit-reset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 50%;
+}
+
+.submit-reset button {
+    min-height: 50px;
+    min-width: 200px;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px #666;
+    cursor: pointer;
+    letter-spacing: 0;
+    transition: all .2s;
+}
+
+#submitButton {
+    background: #7325cc;
+    color: #FFF;
+}
+
+#submitButton:hover {
+    background: #902eff;
+    letter-spacing: .5px;
+}
+
+#submitButton:active {
+    background: #c491ff;
+}
+
+#resetButton {
+    background: #ff4231;
+    color: #FFF;
+}
+
+#resetButton:hover {
+    background: #ff4f3f;
+    letter-spacing: .5px;
+}
+
+#resetButton:active {
+    background: #ff8f85;
+}
+
+
+/* Animaciones */
 
 @keyframes volver {
     from {

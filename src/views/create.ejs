@@ -11,26 +11,43 @@
       </a>
     </div>
     <form id="form" action="/note/newNote" method="POST" enctype="multipart/form-data">
-      <div class="titulo">
-        <label for="title">Ingresa el titulo de la nota</label>
-        <input type="text" name="title">
-      </div>
-      <div class="color">
-        <input type="text" style="display: none" value="background-color:" name="style">
-        <label for="color">Elige un color para el titulo</label>
-        <input type="color" name="color">
+      <div class="container-titulo-color">
+        <div class="titulo">
+          <label for="title">Título de la nota</label>
+          <input type="text" name="title" placeholder="Escribe el titulo de tu nota aquí...">
+        </div>
+        <div class="color">
+          <div class="color-container">
+            <input type="text" style="display: none" value="background-color:" name="style">
+            <label for="color">Color de encabezado</label>
+            <input type="color" name="color">
+          </div>
+          <div class="cuentagotas-container">
+            <label id="cuentagotasLabel" for="cuentagotas">Muestras para el Cuentagotas</label>
+            <div class="colores-container">
+              <div id="colorRojo"></div>
+              <div id="colorAzul"></div>
+              <div id="colorAmarillo"></div>
+              <div id="colorVioleta"></div>
+              <div id="colorVerde"></div>
+              <div id="colorNaranja"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="contenido">
-        <label for="content">Escribe tu nota Aquí</label>
-        <textarea name="content" id="contenidoNota" cols="30" rows="10" placeholder="Escribe Aqui..."></textarea>
+        <label for="content">Contenido de la nota</label>
+        <textarea name="content" id="contenidoNota" cols="30" rows="10" placeholder="Escribe tu nota aquí..."></textarea>
       </div>
-      <div class="archivo">
-        <label for="file">Puedes agregar archivos aquí</label>
-        <input type="file" multiple name="files">
-      </div>
-      <div class="submit-reset">
-        <button type="reset">Vaciar Campos</button>
-        <button type="submit">Crear Nota</button>
+      <div class="archivo-botones">
+        <div class="archivo">
+          <label for="file">Puedes agregar archivos aquí</label>
+          <input type="file" multiple name="files">
+        </div>
+        <div class="submit-reset">
+          <button id="resetButton" type="reset">Vaciar Campos</button>
+          <button id="submitButton" type="submit">Crear Nota</button>
+        </div>
       </div>
     </form>
   </main>

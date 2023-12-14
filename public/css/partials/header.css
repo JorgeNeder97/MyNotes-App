@@ -33,7 +33,7 @@ header {
 }
 
 #nota-crud {
-    min-width: 15%;
+    min-width: 125px;
     text-align: right;
 }
 
@@ -55,7 +55,7 @@ header {
 }
 
 #sesion {
-    min-width: 15%;
+    min-width: 125px;
 }
 
 #sesion a {
@@ -73,6 +73,10 @@ header {
 
 #sesion a:active {
     background: #555;
+}
+
+#nuevaNota, #cerrarSesion {
+    min-width: 125px;
 }
 
 @media (max-width: 900px) {
