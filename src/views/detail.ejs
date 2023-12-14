@@ -5,7 +5,10 @@
   <main>
     <div class="encabezado">
       <h2>Editar Nota</h2>
-      <a href="/">Volver</a>
+      <a href="/" id="volver">
+        <i class="fa-solid fa-angle-left"></i>
+        <p>Volver</p>
+      </a>
     </div>
     <form action="/note/<%= nota.id %>?_method=PUT" method="POST">
       <div id="titulo">

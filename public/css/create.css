@@ -140,27 +140,27 @@ main {
 }
 
 #colorRojo {
-    background: rgb(255, 91, 91);
+    background: rgb(255, 144, 144);
 }
 
 #colorAzul {
-    background: rgb(91, 91, 255);
+    background: rgb(144, 144, 255);
 }
 
 #colorAmarillo {
-    background: rgb(255, 255, 91);
+    background: rgb(255, 255, 144);
 }
 
 #colorVioleta {
-    background: rgb(255, 91, 255);
+    background: rgb(255, 144, 255);
 }
 
 #colorVerde {
-    background: rgb(91, 255, 91);
+    background: rgb(144, 255, 144);
 }
 
 #colorNaranja {
-    background: rgb(255, 178, 91);
+    background: rgb(255, 209, 144);
 }
 
 .contenido {
