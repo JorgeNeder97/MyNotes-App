@@ -10,22 +10,24 @@
         <p>Volver</p>
       </a>
     </div>
-    <form action="/note/<%= nota.id %>?_method=PUT" method="POST">
-      <div id="titulo">
-        <input type="text" name="title" value="<%= nota.title %>">
+    <form class="formEdit" action="/note/<%= nota.id %>?_method=PUT" method="POST">
+      <div class="titulo">
+        <label for="title">Título de la nota</label>
+        <input id="tituloInput" type="text" name="title" value="<%= nota.title %>">
       </div>
-      <div id="content">
-        <textarea name="content" id="content-textArea" cols="30" rows="10"><%= nota.content %></textarea>
+      <div class="content">
+        <label for="content">Contenido de la nota</label>
+        <textarea id="contentTextarea" name="content" id="content-textArea" cols="30" rows="10"><%= nota.content %></textarea>
       </div>
-      <div id="editar">
-        <button type="submit" id="editar">Editar Nota</button>
+      <div class="editar-eliminar">
+        <div class="editar">
+          <button id="editButton" type="submit" id="editar">Editar Nota</button>
+        </div>
+      </form>
+      <form class="eliminar" action="/note/delete/<%= nota.id %>?_method=DELETE" method="POST">
+        <button id="deleteButton" type="submit" id="eliminar">Eliminar Nota</button>
+      </form>
       </div>
-    </form>
-    <form action="/note/delete/<%= nota.id %>?_method=DELETE" method="POST">
-      <button type="submit" id="eliminar">Eliminar Nota</button>
-    </form>
-
-    <!-- Aqui Usaras Method Override -->
   </main>
 
   <%- include('./partials/footer'); %>
