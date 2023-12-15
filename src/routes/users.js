@@ -7,7 +7,9 @@ const validacionesLogueo = require('../modules/loginAuth');
 
 
 // Acceder al perfil de usuario
-router.get('/', userController.perfil);
+router.get('/perfil/:id', userController.perfil);
+router.put('/perfil/:id', upload.single('avatar'), userController.processPerfil);
+router.delete('/perfil/:id/delete', userController.deletePerfil);
 
 // Acceder al formulario de registro y enviar el formulario de registro
 router.get('/register', userController.registrar);

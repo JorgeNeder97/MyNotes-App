@@ -18,10 +18,28 @@ header {
     width: 60%;
     text-align: center;
     font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
 }
 
 #userName {
     font-family: 'Pacifico', cursive;
+}
+
+#profileImage {
+    clip-path: circle(50% at 50% 50%);
+    object-fit: cover;
+    max-width: 100%;
+    margin-left: 10px;
+}
+
+#userLink {
+    object-fit: cover;
+    max-width: 10%;
+    margin-left: 10px;
 }
 
 .botones {

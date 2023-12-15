@@ -1,0 +1,205 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 35px;
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.h2container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.h2container h2 {
+    font-size: 4rem;
+    color: #C9D6FF;
+    font-family: 'Rubik Bubbles', 'Open Sans', 'sans-serif';
+    text-shadow: 2px 2px 6px #111;
+    letter-spacing: 5px;
+    
+}
+
+#volver {
+    background: #C9D7FF;
+    color: #111;
+    padding: 10px 10px 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0px 0px 5px #111;
+    transition: all .3s;
+}
+
+#volver p {
+    text-decoration: none;
+    display: inline-block;
+}
+
+#volver:hover i {
+    position: relative;
+    color: #111;
+    animation: volver infinite .3s alternate;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 80px;
+    margin-top: 50px;
+}
+
+.userSettings, .userAvatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 40%;
+}
+
+.userAvatar {
+    flex-direction: row;
+}
+
+#userName {
+    font-size: 3rem;
+    text-shadow: 0px 0px 15px #b69cff;
+}
+
+#formDelete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#formDelete label {
+    font-size: 1.5rem;
+    color: #a10000;
+    font-weight: bold;
+}
+
+#formDelete button {
+    width: 30%;
+    min-width: 150px;
+    height: 45px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #666;
+    cursor: pointer;
+    background: #ff1500;
+    color: #FFF;
+    letter-spacing: .5px;
+    transition: all .2s;
+}
+
+#formDelete button:hover {
+    background: #b81203;
+    letter-spacing: 0px;
+}
+
+#formDelete button:active {
+    background: #5f0901;
+}
+
+#avatar {
+    width: 100%;
+    border-color: #5a4788;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0px 0px 5px #697bb6;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border: 1px solid #5a4788;
+    border-radius: 16px;
+    background: rgba(123, 92, 173, 0.2);
+}
+
+#avatarName {
+    font-size: 1.5rem;
+}
+
+.userAvatar form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    min-height: 190px;
+}
+
+.userAvatar form label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.userAvatar form input {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.userAvatar form button {
+    min-height: 50px;
+    min-width: 200px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px #666;
+    background: #7325cc;
+    color: #FFF;
+    margin-top: 50px;
+    cursor: pointer;
+    letter-spacing: 0;
+    transition: all .2s;
+}
+
+.userAvatar form button:hover {
+    background: #902eff;
+    letter-spacing: .5px;
+}
+
+.userAvatar form button:active {
+    background: #c491ff;
+}
+
+
+
+
+
+
+
+
+/* Animaciones */
+
+@keyframes volver {
+    from {
+        right:0;
+    }
+    to {
+        right: 5px;
+    }
+}

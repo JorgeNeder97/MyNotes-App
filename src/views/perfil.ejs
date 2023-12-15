@@ -3,7 +3,35 @@
   <%- include('./partials/header'); %>
   
   <main>
-    <h2>Perfil</h2>
+    <div class="encabezado">
+      <div class="h2container">
+        <h2>Perfil</h2>
+      </div>
+      <a href="/" id="volver">
+        <i class="fa-solid fa-angle-left"></i>
+        <p>Volver</p>
+      </a>
+    </div>
+    <div class="info">
+      <div class="userSettings">
+        <h3 id="userName"><%= usuarioLogueado.userName %></h3>
+        <form action="/user/perfil/<%= usuarioLogueado.id %>/delete?_method=DELETE" id="formDelete" method="POST">
+          <label for="delete">Eliminar mi cuenta</label>
+          <button type="submit" name="delete">Eliminar Cuenta</button>
+        </form>
+      </div>
+      <div class="userAvatar">
+        <div class="avatar">
+          <h3 id="avatarName">Avatar</h3>
+          <img id="avatar" src="/img/profile-img/<%= usuarioLogueado.avatar%>" alt="Tu avatar">
+        </div>
+        <form action="/user/perfil/<%= usuarioLogueado.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <label for="avatar">Cambiar Avatar</label>
+          <input type="file" name="avatar">
+          <button type="submit">Cambiar</button>
+        </form>
+      </div>
+    </div>
   </main>
 
   <%- include('./partials/footer'); %>

@@ -2,19 +2,56 @@ const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const session = require('express-session');
+
 
 let usuariosFilePath = path.join(__dirname, '../data/users.json');
 let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'}));
 
+
+
 let userController = {
+
     perfil: (req, res) => {
         if(req.session.usuarioLogueado) {
-            res.render('profile', {usuarioLogueado: req.session.usuarioLogueado, title: 'MyNotes | ' + usuarioLogueado.userName, css:"/css/profile.css"});
+            res.render('perfil', {usuarioLogueado: req.session.usuarioLogueado , title: `MyNotes | ${req.session.usuarioLogueado.userName}`, css:"/css/profile.css"});
         }
         else {
             res.redirect('/user/login');
         }
+
+    },
+
+    processPerfil: (req, res) => {
+        
+        let usuarioId = req.params.id;
+        let usuarioActual;
+
+        for(let i = 0; i < usuarios.length; i++) {
+            if(usuarios[i].id == usuarioId){
+                usuarioActual = usuarios[i];
+            }
+        }
+
+        if(req.file) {
+            if(usuarioActual.avatar != undefined && usuarioActual.avatar != 'default.png') {
+                fs.unlinkSync(path.join(__dirname, `../../public/img/profile-img/${usuarioActual.avatar}`));
+            }
+            usuarioActual.avatar = req.file.filename;
+        }
+        else {
+            if(usuarioActual.avatar != undefined && usuarioActual.avatar != 'default.png') {
+                fs.unlinkSync(path.join(__dirname, `../../public/img/profile-img/${usuarioActual.avatar}`));
+            }
+            usuarioActual.avatar = 'default.png';
+        }
+
+        let indice = usuarios.findIndex(user => user.id == usuarioActual.id);
+
+        usuarios.splice(indice, 1, usuarioActual);
+
+        fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios));
+
+        res.redirect(`/user/perfil/${usuarioId}`);
     },
 
     registrar: (req, res) => {
@@ -34,7 +71,7 @@ let userController = {
                 
             }
             if(req.file) {
-                newUser.avatar = req.file.originalname;
+                newUser.avatar = req.file.filename;
             }
             else if(newUser.avatar == undefined) {
                 newUser.avatar = 'default.webp';
@@ -88,6 +125,32 @@ let userController = {
         else {
             res.render('login', {errors: errors.mapped(), old: old, title: 'MyNotes | Iniciar Sesión', css:'/css/login.css'});
         }
+    },
+
+    deletePerfil: (req, res) => {
+        let usuarioId = req.params.id;
+        let usuarioActual;
+        for(let i = 0; i < usuarios.length; i++) {
+            if(usuarios[i].id == usuarioId) {
+                usuarioActual = usuarios[i];
+            }
+        }
+
+        fs.unlinkSync(path.join(__dirname, `../../public/img/profile-img/${usuarioActual.avatar}`));
+
+        fs.unlinkSync(path.join(__dirname, `../data/notes/${usuarioActual.userName}.json`));
+
+        let indice = usuarios.findIndex(user => user.id == usuarioId);
+
+        usuarios.splice(indice, 1);
+
+        for(let i = 0; i < usuarios.length; i++) {
+            usuarios[i].id = i;
+        }
+
+        fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios));
+
+        res.redirect('/user/login');
     },
 
 }

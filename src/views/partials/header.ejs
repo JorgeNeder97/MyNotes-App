@@ -1,6 +1,6 @@
 <header>
     <img id="logo" src="/img/MyNotes.png" alt="My Notes App">
-    <h2 id="bienvenido">Bienvenido <span id="userName"><%=usuarioLogueado.userName %></span></h2>
+    <h2 id="bienvenido">Bienvenido <span id="userName"><%=usuarioLogueado.userName %></span> <a id="userLink" href="/user/perfil/<%= usuarioLogueado.id %>"><img id="profileImage" src="/img/profile-img/<%= usuarioLogueado.avatar%>" alt="Tu avatar"></a></h2>
     <div class="botones">
         <section id="nota-crud">
             <a id="nuevaNota" href="/note/newNote">Nueva Nota</a>
